@@ -12,35 +12,37 @@ interface ITableProps{
 }
 
 export default function Table({switchState, setSelectedCount}: ITableProps): JSX.Element{
-  const [isCheckAll, setIsCheckAll] = useState(false);
-  const [isCheck, setIsCheck] = useState<Array<string>>([]);
+  const [selectAll, setSelectAll] = useState(false);
+  const [selectedCheckbox, setSelectedCheckbox] = useState<Array<string>>([]);
   const [tableData, setTableData] = useState<Array<TTableData>>([])
   const [indeterminate, setIndeterminate] = useState<boolean>(false);
 
+  //fetch data based on toggle switch
   useEffect(() => {
     switchState ?  
     axios.get('http://localhost:7000/employees').then((response) => { setTableData(response.data); }) : 
     axios.get('http://localhost:7000/employees?status=Active').then((response) => { setTableData(response.data); });
   }, [switchState]);
 
+  //Toggle all of the checkboxes at once
   const handleSelectAll = (event: any) => {
     setIndeterminate(false);
-    setIsCheckAll(!isCheckAll);
-    setIsCheck(tableData.map(li => li.id));
-    if (isCheckAll) {
-      setIsCheck([]);
+    setSelectAll(!selectAll);
+    setSelectedCheckbox(tableData.map(li => li.id));
+    if (selectAll) {
+      setSelectedCheckbox([]);
     }
   };
-
+  //Toggle an individual checkbox
   const handleClick = (event: any) => {
     setIndeterminate(!indeterminate);
     const { id, checked } = event.target;
-    setIsCheck([...isCheck, id]);
+    setSelectedCheckbox([...selectedCheckbox, id]);
     if (!checked) {
-      setIsCheck(isCheck.filter(item => item !== id));
+      setSelectedCheckbox(selectedCheckbox.filter(item => item !== id));
     }
   };
-  
+  //Get the column names based on the object keys
   const getHeaderColumns = (data :TTableData) =>{
     const columnArray: string[] = Object.keys(data);
     columnArray.splice(0,1);
@@ -48,13 +50,13 @@ export default function Table({switchState, setSelectedCount}: ITableProps): JSX
     return Headers;
   }
 
-  setSelectedCount(isCheck.length);
+  setSelectedCount(selectedCheckbox.length);
   return (
     <>
       {tableData.length > 0 && <StyledTable>
         <table>
-          <TableHeader handleSelectAll={handleSelectAll} headerConfig={getHeaderColumns(tableData[0])} isCheckAll={isCheckAll} indeterminate={indeterminate}/>
-          <TableRows tableData={tableData} handleClick={handleClick} isCheck={isCheck}/>
+          <TableHeader handleSelectAll={handleSelectAll} headerConfig={getHeaderColumns(tableData[0])} isCheckAll={selectAll} indeterminate={indeterminate}/>
+          <TableRows tableData={tableData} handleClick={handleClick} isCheck={selectedCheckbox}/>
         </table> 
       </StyledTable>}   
     </>

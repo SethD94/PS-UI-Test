@@ -5,9 +5,9 @@ import DropDownButtonList from'./Components/ButtonDropdown/dropdownList'
 import { FormControlLabel, Switch } from '@mui/material';
 
 function App() {
-  const [ showTerminated, setShowTerminated ] = useState(false)
+  const [showTerminated, setShowTerminated] = useState(false)
   const toggleSwitchHandler = () => setShowTerminated(!showTerminated);
-  const [ selectedCount, setSelectedCount ] = useState(0);
+  const [selectedCount, setSelectedCount] = useState(0);
 
   return (
     <>

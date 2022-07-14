@@ -77,21 +77,22 @@ table th {
   }
   table td {
     display: block;
-    font-size: .8em;
+    font-size: 1em;
     text-align: right;
   }
-  table td::before {
-    /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
+  table td:first-child{
+    font-size:0px;
+  }
+  table td div{
+    font-size:14px;
   }
   table td:last-child {
     border-bottom: 0;
+    font-size: 1em;
+  }
+  table td::before {
+    content: attr(data-label);
+    float: left;
   }
 }
 

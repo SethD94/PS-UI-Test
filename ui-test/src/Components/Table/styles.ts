@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyledActive = styled.div`
+  font-size: 12px;
   background-color: #21BA45; /* Green */
   border-radius: 5px;
   color: white;
@@ -13,6 +14,7 @@ const StyledActive = styled.div`
 export default StyledActive;
 
 export const StyledTerminated = styled.div`
+  font-size: 12px;
   background-color: #000; /* Green */
   border-radius: 5px;
   color: white;
@@ -33,8 +35,11 @@ table {
   width: 100%;
   table-layout: fixed;
 }
-table tr {
+table tr{
   border-bottom: 1px solid #ddd;
+}
+table tbody tr:last-child{
+  border-bottom: none;
 }
 table th:first-child,
 table td:first-child {

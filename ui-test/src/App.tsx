@@ -14,7 +14,7 @@ function App() {
       <div className="App-Container">
         <div>
           <h1>UI Test</h1>
-          <FormControlLabel control={<Switch checked={showTerminated} onChange={toggleSwitchHandler}/>} label="Show Terminated Employees" />
+          <FormControlLabel sx={{pt:2, pb:3}} control={<Switch checked={showTerminated} onChange={toggleSwitchHandler}/>} label={<span style={{ fontSize: '14px' }}>Show Terminated Employees</span>} />
           <Table switchState={showTerminated} setSelectedCount={setSelectedCount}/> 
           <DropDownButtonList selectedRowCount={selectedCount}></DropDownButtonList>
         </div>

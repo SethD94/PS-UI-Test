@@ -2,7 +2,7 @@
 
 1). To run this project, clone the respository to your local machine.
 
-2). Navigate into the project folder.
+2). Navigate into the project folder (ui-test).
 
 3). Run 'yarn-install' to install fresh dependencies.
 

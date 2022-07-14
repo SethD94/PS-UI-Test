@@ -10,6 +10,6 @@
 
 5). The application will launch and be accessible on http://localhost:3000.
 
-6). At the same time, a mock data server will launch on http://localhost: 7000.
+6). At the same time, a mock data server will launch on http://localhost:7000.
 
 7). Both processes are running concurrently, the launch process may be a little slow.

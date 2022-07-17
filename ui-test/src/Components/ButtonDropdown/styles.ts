@@ -29,8 +29,8 @@ export const StyledList = styled.div`
       cursor: pointer;
       background-color: #E6E6E6;
     }
-    & li:active{
-      font-weight:bold
+    & li:focus{
+      font-weight: bold;
     }
   }
   .list.active{

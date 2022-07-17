@@ -14,7 +14,7 @@ export default function List({ items, state, setOpenList }: IListProps) {
         <div className={state ? 'list active' : 'list'}>
           <ul>
             {items.map((item, index) => {
-              return <li key={index}>{item}</li>
+              return <li key={index} tabIndex={index}>{item}</li>
             })}
           </ul>
         </div>

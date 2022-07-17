@@ -41,6 +41,9 @@ table tr{
 table tbody tr:last-child{
   border-bottom: none;
 }
+table tr th:first-child{
+  width: 40px;
+}
 table th:first-child,
 table td:first-child {
   padding: 0.3em;

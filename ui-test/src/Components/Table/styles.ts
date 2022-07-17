@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledActive = styled.div`
   font-size: 12px;
+  font-weight: bold;
   background-color: #21BA45; /* Green */
   border-radius: 5px;
   color: white;
@@ -15,6 +16,7 @@ export default StyledActive;
 
 export const StyledTerminated = styled.div`
   font-size: 12px;
+  font-weight: bold;
   background-color: #000; /* Green */
   border-radius: 5px;
   color: white;
